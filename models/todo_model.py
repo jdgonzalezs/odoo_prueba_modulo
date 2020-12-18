@@ -38,6 +38,7 @@ class TodoTask(models.Model):
         result = {}
         datas = self.env['todo.task'].search([], order='create_date desc', limit=1)
         for d in datas:
+            #result['id'] = d.id
             result['numero_promesa'] = d.promesa
             result['fecha_creacion'] = d.fecha
             result['seleccion'] = d.mdh_selection
@@ -47,9 +48,10 @@ class TodoTask(models.Model):
     @api.model
     def write(self,values):
         #values = {}
-        values['last_modification'] = self.progress_rate
-        #values = self.progress_rate
+        values[1] = self.progress_rate
         #campo = super(TodoTask, self).write(values)
+        print("Probando sobreescritura de Write")
         return super(TodoTask, self).write(values)
+        # rec.write({'state': 'done'})
         #return campo
 

@@ -28,7 +28,7 @@
 
     <template id="assets_backend" name="prueba_modulo assets" inherit_id="web.assets_backend">
     <xpath expr="." position="inside">
-        <!-- <script type="text/javascript" src="/prueba_modulo/static/src/js/diferencia.js"></script> -->
+        <script type="text/javascript" src="/prueba_modulo/static/src/js/diferencia.js"></script>
         <script type="text/javascript" src="/prueba_modulo/static/src/js/escribir.js" defer="True"></script>
         <script type="text/javascript" src="/prueba_modulo/static/src/js/enviar_dato.js" defer="True"></script>
     </xpath>
