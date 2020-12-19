@@ -50,8 +50,8 @@
                             </div>
                             <div class="oe_kanba_details">
                                 <strong class="o_kanban_record_title">
-                                    <field name="progress_rate" widget="gauge" style="width:160px;height:120px;cursor:pointer" 
-                                        options="{'max_field': 'maximum_rate'}">Progeso
+                                    <field name="progress_rate" widget="gauge" style="width:150px; height: 110px;" 
+                                        options="{'max_field': 'maximum_rate', 'title': 'Progreso', 'levelcolors': ['#ffffff', '#0000ff', '#00bb2b','ffff00', '#ffa500', '#ff0000']}">
                                     </field>
                                 </strong>
                             </div>

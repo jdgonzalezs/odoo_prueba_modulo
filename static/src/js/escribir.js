@@ -6,11 +6,12 @@ odoo.define('prueba_modulo.escribir',function (require) {
 
     // console.log("Percent", percent);
     var rpc = require('web.rpc');
+    //var self = this;
 
 //     //this.call('write', [[self.id], { 'progress_rate': percent }]).done(function() {
 
 //     //    console.log("Revisar Write");
-    rpc.query({
+    return rpc.query({
 
         model: 'todo.task',
         method: 'get_all_data',
@@ -20,7 +21,7 @@ odoo.define('prueba_modulo.escribir',function (require) {
 
         }).then(function(result){
             
-            console.log(result);
+            console.log(result);    
 
             var num_promesa = result['numero_promesa'];
             var fecha_inicio = result['fecha_creacion'];  
@@ -42,25 +43,26 @@ odoo.define('prueba_modulo.escribir',function (require) {
                 var factor = 24*60*60*1000;
             } 
             var tiempo_diferencia = tiempo_transcurrido/factor;
-            // console.log("Fecha_ahora: ",  fecha_ahora);
-            // console.log("Fecha_creacion_tarea: ",  fecha_creacion_tarea);
-            // console.log("Tiempo_diferencia: ",  tiempo_diferencia);
-            // console.log("Num_promesa: ",  num_promesa);
             var porcentaje_transcurrido = tiempo_diferencia * (100/num_promesa);
 
-            self.porcentaje_transcurrido = porcentaje_transcurrido;
-            rpc.porcentaje_transcurrido = porcentaje_transcurrido;
-            //res.porcentaje_transcurrido = porcentaje_transcurrido;
+            self.porcentaje = porcentaje_transcurrido;
+            //rpc.porcentaje_transcurrido = porcentaje_transcurrido;
 
             console.log("Porcentaje: ", porcentaje_transcurrido);
             console.log("self_escribir", self);
-            return porcentaje_transcurrido;
-
+            //return porcentaje_transcurrido;
+            //return porcentaje_transcurrido;
         });
         
         //console.log("Porcentaje_escribir: ", porcentaje_transcurrido);
-        var importar = rpc.porcentaje_transcurrido;
-        return importar;
+        //var importar = porcentaje_transcurrido;
+        //console.log("RPC de escribir.js", rpc);
+        //console.log("dato", dato);
+        //return rpc;
         
 });
 
+// odoo.define('prueba_modulo.escribir_2',function (require) {
+
+//     console.log("Self fuera de escribir", self);
+//  })

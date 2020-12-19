@@ -18,7 +18,7 @@ class TodoTask(models.Model):
         ('dias' ,'Días')], default='minutos')  
 
     # Para el widget gauge 
-    progress_rate = fields.Integer(string='Progreso', store=True, recompute=True)
+    progress_rate = fields.Integer(string='Progreso', store=True, compute='write_progress_bar')
     maximum_rate = fields.Integer(string='Maximum Rate', default=100)
 
     @api.multi
@@ -45,13 +45,16 @@ class TodoTask(models.Model):
  
         return result
 
-    @api.model
+
     def write(self,values):
         #values = {}
-        values[1] = self.progress_rate
+        #values['progress_rate'] = self.progress_rate 
         #campo = super(TodoTask, self).write(values)
         print("Probando sobreescritura de Write")
         return super(TodoTask, self).write(values)
         # rec.write({'state': 'done'})
         #return campo
 
+    def write_progress_rate(self, val):
+        val['progress_rate'] = self.progress_rate 
+        return super(TodoTask, self).write(val)
