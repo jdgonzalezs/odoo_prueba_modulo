@@ -3,7 +3,8 @@ odoo.define('prueba_modulo.enviar_dato',function (require) {
     "use strict";
     console.log("Dentro de enviar_dato.js");
     var rpc = require('web.rpc');
-    var dato_porcentaje = require('prueba_modulo.escribir');
+    //var dato_diferencia = require('prueba_modulo.diferencia');
+    var dato_escribir = require('prueba_modulo.escribir');
     //var dato = rcp.dato_porcentaje;
     //var rpc = require('web.rpc');
     //console.log("RPC", rpc);
@@ -12,6 +13,7 @@ odoo.define('prueba_modulo.enviar_dato',function (require) {
     console.log("self",self);
     var percent = self.porcentaje;
     console.log("porcentaje_enviar_datos", percent);
+    //console.log("Res_enviar_dato", res);
     //model('todo.task').call('write',[dato_porcentaje]).then(function(result){
     //     console.log("Result_enviar_dato", result);
     //     return result;
@@ -27,7 +29,7 @@ odoo.define('prueba_modulo.enviar_dato',function (require) {
 //     //    console.log("Revisar Write");
     rpc.query({
 
-            model: 'todo.task',
+        model: 'todo.task',
         method: 'write',
         args: [[],[percent]],
         fields: ['progress_rate'],

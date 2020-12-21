@@ -18,7 +18,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','web_kanban_gauge'],
 
     # always loaded
     'data': [
@@ -39,4 +39,4 @@
         'static/src/js/escribir.js',
         'static/src/js/enviar_dato.js',
     ],
-}
+} #agregar archivos de lib en este manifiesto

@@ -28,9 +28,14 @@
 
     <template id="assets_backend" name="prueba_modulo assets" inherit_id="web.assets_backend">
     <xpath expr="." position="inside">
-        <script type="text/javascript" src="/prueba_modulo/static/src/js/diferencia.js"></script>
+        <!-- <script type="text/javascript" src="/prueba_modulo/static/src/js/diferencia.js"></script> -->
         <script type="text/javascript" src="/prueba_modulo/static/src/js/escribir.js" defer="True"></script>
-        <script type="text/javascript" src="/prueba_modulo/static/src/js/enviar_dato.js" defer="True"></script>
+        <!-- <script type="text/javascript" src="/prueba_modulo/static/src/js/enviar_dato.js" defer="True"></script> -->
+                <!-- Raphael must be included before justgage -->
+        <script type="text/javascript" src="/prueba_modulo/static/lib/raphael-2.1.4.min.js"></script>
+        <script type="text/javascript" src="/prueba_modulo/static/lib/justgage.js"></script>
+        <script type="text/javascript" src="/prueba_modulo/static/src/js/gauge_2.js"></script>
+
     </xpath>
     </template>
 
@@ -54,6 +59,9 @@
                                         options="{'max_field': 'maximum_rate', 'title': 'Progreso', 'levelcolors': ['#ffffff', '#0000ff', '#00bb2b','ffff00', '#ffa500', '#ff0000']}">
                                     </field>
                                 </strong>
+                            </div>
+                            <div>
+                                <div id="gauge_widget"></div>
                             </div>
                         </div>
                     </t>

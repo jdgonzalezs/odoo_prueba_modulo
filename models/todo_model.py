@@ -42,6 +42,7 @@ class TodoTask(models.Model):
             result['numero_promesa'] = d.promesa
             result['fecha_creacion'] = d.fecha
             result['seleccion'] = d.mdh_selection
+            result['progress'] = d.progress_rate
  
         return result
 
@@ -50,11 +51,24 @@ class TodoTask(models.Model):
         #values = {}
         #values['progress_rate'] = self.progress_rate 
         #campo = super(TodoTask, self).write(values)
+        # for prog in self:
+        #     prog['progress_rate'] = values
         print("Probando sobreescritura de Write")
-        return super(TodoTask, self).write(values)
         # rec.write({'state': 'done'})
         #return campo
 
+        return super(TodoTask, self).write(values)
+
+    @api.one
     def write_progress_rate(self, val):
-        val['progress_rate'] = self.progress_rate 
+        #self.ensure_one()
+        val['progress_rate'] = self.progress_rate
         return super(TodoTask, self).write(val)
+
+    # @api.model
+    # def create(self, vals):
+    #     res = super(bk_backend, self).create(vals)
+    #     self.env['account.analytic.line'].search([('backend_id', '=', False)]).write({'backend_id': res.id})
+    #     return res
+
+

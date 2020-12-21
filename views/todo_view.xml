@@ -28,8 +28,10 @@
 
     <template id="assets_backend" name="prueba_modulo assets" inherit_id="web.assets_backend">
     <xpath expr="." position="inside">
-        <script type="text/javascript" src="/prueba_modulo/static/src/js/escribir.js" defer="True"></script>
-        <script type="text/javascript" src="/prueba_modulo/static/src/js/enviar_dato.js" defer="True"></script>        
+        <!-- <script type="text/javascript" src="/prueba_modulo/static/src/js/diferencia.js"></script> -->
+        <script type="text/javascript" src="/prueba_modulo/static/src/js/escribir.js"></script>
+        <script type="text/javascript" src="/prueba_modulo/static/src/js/enviar_dato.js"></script>
+                
     </xpath>
     </template>
 
@@ -72,7 +74,7 @@
                         <field name="active" readonly="1" />
                     </group>
                      <group colspan="2">
-                            <field name="progress_rate" readonly="1"/>
+                            <field name="progress_rate"/>
                         </group>
                     </group>
                 </sheet>

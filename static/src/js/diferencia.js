@@ -1,7 +1,7 @@
 odoo.define('prueba_modulo.diferencia', function (require) {
     
     "use strict";
-    console.log("Welcome to my_module")
+    console.log("Welcome to my_module");
     // var self = this 
     var rpc = require('web.rpc')
     // //var new_rpc = new rpc('todo.task')
@@ -48,7 +48,7 @@ odoo.define('prueba_modulo.diferencia', function (require) {
                             model: 'todo.task',
                             method: 'get_all_data',
                             args: [[]],
-                            fields: ['promesa', 'fecha', 'mdh_selection'],
+                            fields: ['promesa', 'fecha', 'mdh_selection', 'progress_rate'],
                             context: self.context,
                         }).then(function(result){
 
@@ -74,16 +74,19 @@ odoo.define('prueba_modulo.diferencia', function (require) {
                                     var factor = 24*60*60*1000;
                                 } 
                                 var tiempo_diferencia = tiempo_transcurrido/factor;
-                                // console.log("Fecha_ahora: ",  fecha_ahora);
-                                // console.log("Fecha_creacion_tarea: ",  fecha_creacion_tarea);
-                                // console.log("Tiempo_diferencia: ",  tiempo_diferencia);
-                                // console.log("Num_promesa: ",  num_promesa);
                                 var porcentaje_transcurrido = tiempo_diferencia * (100/num_promesa);
 
                                 self.porcentaje_transcurrido = porcentaje_transcurrido;
                                 res.porcentaje_transcurrido = porcentaje_transcurrido;
+                                //self.model.localData.todo.task_10.data.progress_rate = porcentaje_transcurrido;
+                                var identi = self.handle;
+                                var data_progress = self.model.localData[identi].data.progress_rate;
+                                console.log("identi", identi);
+                                console.log("data_progesss", data_progress);
+                                result['progress'] = porcentaje_transcurrido;
 
-                                console.log("Porcentaje: ", porcentaje_transcurrido)
+                                console.log("Porcentaje: ", porcentaje_transcurrido);
+                                console.log("Self_diferencia: ", self);
 
                                 //return porcentaje_transcurrido;
                                 

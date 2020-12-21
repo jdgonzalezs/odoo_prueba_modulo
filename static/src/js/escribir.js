@@ -50,8 +50,7 @@ odoo.define('prueba_modulo.escribir',function (require) {
 
             console.log("Porcentaje: ", porcentaje_transcurrido);
             console.log("self_escribir", self);
-            //return porcentaje_transcurrido;
-            //return porcentaje_transcurrido;
+
         });
         
         //console.log("Porcentaje_escribir: ", porcentaje_transcurrido);
